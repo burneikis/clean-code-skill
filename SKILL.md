@@ -1,13 +1,9 @@
 ---
 name: clean-code
-description: "Clean Code (Robert C. Martin) distilled chapter by chapter. Use when writing, refactoring, or reviewing code and you need concrete guidance on naming, function design, comments, formatting, error handling, class design, tests, or code smells. Triggers on: clean code, code review, review this code, refactor, refactoring, code smell, naming, function too long, too many arguments, comments, formatting, error handling, exceptions, class design, SRP, SOLID, cohesion, coupling, unit tests, TDD, boundaries, third-party API, concurrency, heuristics, checklist."
+description: "Clean Code (Robert C. Martin) distilled chapter by chapter. Use when writing, refactoring, or reviewing code and you need concrete guidance on naming, function design, comments, formatting, error handling, class design, tests, or code smells."
 ---
 
 # clean-code
-
-Chapter-by-chapter distillation of *Clean Code* (Robert C. Martin, 2008), from a
-full read of the text. Examples in the book are Java; the principles are
-language-agnostic. Load only the chapters relevant to the task.
 
 ## Core rules (apply always)
 
