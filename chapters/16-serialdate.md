@@ -1,0 +1,6 @@
+# 16. Refactoring SerialDate
+
+- Professional code review is neither nasty nor arrogant - it's how the craft improves, and we should welcome it on our own code.
+- First make it work: found the existing tests covered ~50% of statements; wrote an independent test suite (to 92%), which exposed real bugs (boundary condition errors, an algorithm branch that could never execute); fixed them. Bugs congregate; patterns of test failure and coverage are diagnostic.
+- Then make it right, running all tests after every change: delete change-history comments and redundant javadocs; rename to the right abstraction level (SerialDate -> DayDate; "serial" leaked implementation); replace inherited/int constants with enums that carry behavior; use an Abstract Factory so the base class doesn't know its derivatives; move code to where it belongs (constants and methods down to the implementation or into the enums); make logical dependencies physical; static -> instance methods where they act on instance state; explaining temporary variables; names that don't imply mutation (`plusDays` not `addDays`); replace switch with polymorphic enum methods; kill dead code.
+- The result: smaller, clearer, better tested. Check it in cleaner than you checked it out.
