@@ -1,6 +1,7 @@
 ---
 name: clean-code
-description: "Clean Code (Robert C. Martin) distilled chapter by chapter. Use when writing, refactoring, or reviewing code and you need concrete guidance on naming, function design, comments, formatting, error handling, class design, tests, or code smells."
+description: "Clean Code (Robert C. Martin) distilled chapter by chapter. Use when writing, refactoring, or reviewing code"
+disable-model-invocation: true
 ---
 
 # clean-code
