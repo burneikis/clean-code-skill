@@ -1,7 +1,7 @@
 ---
 name: clean-code
 description: "Clean Code (Robert C. Martin) distilled chapter by chapter. Use when writing, refactoring, or reviewing code"
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 # clean-code
