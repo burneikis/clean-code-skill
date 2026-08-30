@@ -1,23 +1,50 @@
 # 17. Smells and Heuristics (review checklist)
 
-### Comments
+## How to use this file
+
+This list is an index, not the argument. It tells you *that* something smells,
+not *why* or *how to fix it*.
+
+Workflow, per review:
+1. Scan the checklist, note the codes that fire.
+2. Group the codes by their chapter (column below).
+3. **Read each of those chapters before writing the review.** A finding you
+   cannot back with the chapter's reasoning is not a finding yet - drop it or
+   go read.
+4. Cite in the review as `G30 (ch.03)` so the source is checkable.
+
+| Codes | Read before reporting |
+| --- | --- |
+| C1-C5 | `04-comments.md` |
+| E1-E2 | `09-unit-tests.md`, `11-systems.md` |
+| F1-F4 | `03-functions.md` |
+| G1-G12, G16, G19-G21, G24-G26 | `02-naming.md`, `03-functions.md`, `12-emergence.md` |
+| G13-G15, G17-G18, G22-G23, G27-G36 | `06-objects-and-data.md`, `10-classes.md`, `03-functions.md` |
+| J1-J3 | `06-objects-and-data.md`, `08-boundaries.md` |
+| N1-N7 | `02-naming.md` |
+| T1-T9 | `09-unit-tests.md` |
+
+Rule of thumb: 3+ codes from one chapter means the real problem is that
+chapter's topic - read it in full and review at that level, not smell by smell.
+
+### Comments (-> `04-comments.md`)
 - **C1** Inappropriate info (change histories, metadata belonging in other systems).
 - **C2** Obsolete comment - update or delete; they drift from the code.
 - **C3** Redundant comment (`i++; // increment i`, javadocs restating signatures).
 - **C4** Poorly written comment - if worth writing, write it well and briefly.
 - **C5** Commented-out code - delete on sight.
 
-### Environment
+### Environment (-> `11-systems.md`, `09-unit-tests.md`)
 - **E1** Build requires more than one step - one command to check out and build.
 - **E2** Tests require more than one step - one command or one IDE click.
 
-### Functions
+### Functions (-> `03-functions.md`)
 - **F1** Too many arguments (0-3; more needs prejudice against it).
 - **F2** Output arguments - change the state of the owning object instead.
 - **F3** Flag arguments - the function does more than one thing.
 - **F4** Dead function - delete; version control remembers.
 
-### General
+### General (-> `03-functions.md`, `06-objects-and-data.md`, `10-classes.md`, `12-emergence.md`)
 - **G1** Multiple languages in one source file - minimize number and extent.
 - **G2** Obvious behavior unimplemented (principle of least surprise; readers lose trust).
 - **G3** Incorrect behavior at boundaries - don't trust intuition; test every corner case.
@@ -55,12 +82,12 @@
 - **G35** Keep configurable data (defaults, constants) at high levels and pass it down; low levels don't own those values.
 - **G36** Avoid transitive navigation (`a.getB().getC()`) - Law of Demeter / shy code; immediate collaborators should offer what you need, or architecture goes rigid.
 
-### Java (mostly generalizable)
+### Java (-> `06-objects-and-data.md`, `08-boundaries.md`) (mostly generalizable)
 - **J1** Avoid long import lists - wildcard-import a package you use 2+ classes from; wildcards aren't hard dependencies.
 - **J2** Don't inherit constants from interfaces/base classes - it hides their origin; use static import.
 - **J3** Constants versus enums - use enums; they're named, checked, and can carry methods and fields.
 
-### Names
+### Names (-> `02-naming.md`)
 - **N1** Choose descriptive names - 90% of readability; reevaluate as meaning drifts; good names overload structure with description.
 - **N2** Names at the appropriate level of abstraction (`connect(connectionLocator)`, not `dial(phoneNumber)` on a general Modem).
 - **N3** Use standard nomenclature where possible - pattern names (Decorator), conventions (toString), the project's ubiquitous language.
@@ -69,7 +96,7 @@
 - **N6** Avoid encodings - no type/scope prefixes (`m_`, `f`, `vis_`).
 - **N7** Names should describe side effects - `createOrReturnOos`, not `getOos`.
 
-### Tests
+### Tests (-> `09-unit-tests.md`)
 - **T1** Insufficient tests - test everything that could possibly break.
 - **T2** Use a coverage tool - makes gaps obvious.
 - **T3** Don't skip trivial tests - documentary value exceeds cost.

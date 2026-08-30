@@ -16,6 +16,24 @@ disable-model-invocation: false
 - No duplication.
 - Boy Scout Rule: leave code cleaner than you found it.
 
+## How to use this skill
+
+This file and `17-smells.md` are indexes only. They name problems; they do not
+contain the reasoning, examples, or fixes. Never produce a review or refactor
+from the index alone.
+
+Required loop:
+1. Pick the task row(s) in the table below (for review: `17-smells.md`).
+2. Note which smell codes fire.
+3. **Read the chapter each code maps to** (mapping table at the top of
+   `17-smells.md`) before writing any finding based on it.
+4. State findings as `<code> (ch.NN)` plus the chapter's reasoning in your own
+   words, and the fix the chapter prescribes.
+
+If you have not opened a chapter file in this session, you are not done.
+A finding you cannot justify from a chapter you actually read is speculation:
+read the chapter or drop the finding.
+
 ## Chapters
 
 Read from `{baseDir}/chapters/`:
@@ -40,4 +58,5 @@ Read from `{baseDir}/chapters/`:
 | `16-serialdate.md` | Case study: full refactor of a real class |
 | `17-smells.md` | **Code review.** Full smells and heuristics checklist (C/E/F/G/J/N/T codes) |
 
-For any code review, read `17-smells.md` first.
+For any code review, read `17-smells.md` first - then the chapters its mapping
+table points at for the codes you flagged.
